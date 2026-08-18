@@ -39,7 +39,7 @@ The design goal is to strictly balance:
 
 # 🖼️ Drift-Sense Pipeline
 
-![Architecture Diagram](Semicon_Architecture.png)
+![Architecture Diagram](ADD_YOUR_ARCH_IMAGE_HERE.png)
 
 ```text
 Low-Mag Search Image
@@ -100,21 +100,27 @@ We evaluated the system across highly challenging simulated SEM environments. Be
 |:---:|:---:|:---:|
 | <img src="plots/accuracy_by_category.png" width="300" alt="Accuracy Chart"> | <img src="plots/confidence_vs_error.png" width="300" alt="Confidence Chart"> | <img src="plots/noise_robustness_ladder.png" width="300" alt="Noise Ladder"> |
 
-### Presentation Benchmarks
-These metrics exactly match our official Phase 2 Hackathon PPT presentation:
-* **Sub-pixel localization accuracy:** 0.41 px median error (solvable layouts)
-* **Success rate (≤5 px):** 100% on solvable layouts (12,000+ pairs)
-* **Robust to:** ±500 px drift, ±5° rotation, scale 0.88x – 1.14x, heavy Poisson noise, charging artifacts
-* **Runtime:** < 0.88 s per image pair (CPU only)
-* **Catastrophic failure interception:** 96.1% (49/51 periodic cases)
-* **Top-5 correct site recall in periodic layouts:** 98.3%
+### 1. Headline Accuracy Summary
 
-### Benchmark Table
-| Layout Category | Accuracy (≤ 5 px) | Median Error | Speed |
-|---|---|---|---|
-| **Solvable Layouts** | 100.0% | 0.41 px | 0.88 s |
-| **Heavy Noise (2.0x)** | 100.0% | 0.68 px | 0.91 s |
-| **Pure-Periodic Ambiguity**| Abstains (96.1% Catch Rate) | Phase Error: 0.81px | 0.82 s |
+| Test Data Category | Pairs Tested | Accuracy @ 5 px | Median Translation Error | Lattice-Phase Accuracy | Outcome / Action |
+|---|---|---|---|---|---|
+| **Solvable Layouts** (Validation & Test Sets) | 140 pairs | 100.0% | 0.41 px (Sub-pixel) | 0.41 px | Deployed with **99.3% confident coverage** |
+| **Heavy SEM Noise** ($2.0\times$ Noise Scale) | 47 pairs | 100.0% | 0.68 px | 0.68 px | **100% confident coverage** |
+| **Pure-Periodic Repeating Arrays** (DRAM / Secondary Structure) | 60 pairs | 11.7% raw* | 263 px* (Ambiguous) | 0.81 px | **96.1% Catastrophic Catch Rate**; returns Top-5 Ambiguity Set (98.3% Recall@5) |
+| **Overall Pooled Dataset** (All 200 pairs combined) | 200 pairs | 73.5% raw | 0.67 px | 0.81 px | Covered accuracy on confident decisions: **100%** |
+
+*Note: On pure repeating nanoscale arrays, global coordinate matching is mathematically ill-posed because every unit cell is identical. The raw Euclidean error metric is deceptive; the system actually locks onto the periodic grid with **0.81 px median phase accuracy**.*
+
+### 2. Key Accuracy Takeaways for Judges
+
+1. **Sub-Pixel Precision on Solvable Layouts:**
+   * **100.0% Accuracy @ 5 px** and **0.41 px median error** (P90: 1.13 px) in **0.88 seconds** on a single CPU core.
+2. **Sub-Pixel Grid Recovery on Periodic Layouts:**
+   * **0.81 px median lattice-phase error**, outperforming random guessing by $78\times$ on Logic, $2.9\times$ on Secondary Structure, and $2.9\times$ on DRAM.
+3. **98.3% Ambiguity Set Recall:**
+   * When global position is ambiguous, Drift-Sense returns the Top-5 candidate locations with **98.3% Recall@5** and exact lattice basis vectors $(\vec{u}, \vec{v})$.
+4. **96.1% Crash Prevention:**
+   * The calibrated confidence model catches **96.1%** of catastrophic failures ($> 100\text{ px}$), preventing physical tool collision.
 
 ---
 
