@@ -4,7 +4,61 @@
 
 <br>
 
-> **"Drift-Sense localizes high-magnification SEM reference images inside a 10× search field to sub-pixel precision on a single CPU core. By mathematically modeling repeating semiconductor lattices, Drift-Sense recovers the sub-pixel lattice phase and intercepts catastrophic tool navigation crashes before they happen."**
+![Python](https://img.shields.io/badge/Python-3.9+-blue?style=for-the-badge)
+![Framework](https://img.shields.io/badge/Framework-OpenCV%20|%20NumPy-orange?style=for-the-badge)
+![Compute](https://img.shields.io/badge/Compute-Single%20CPU%20Core-success?style=for-the-badge)
+![Accuracy](https://img.shields.io/badge/Accuracy-100%25%20Solvable-brightgreen?style=for-the-badge)
+![Latency](https://img.shields.io/badge/Latency-<1.0s-blueviolet?style=for-the-badge)
+![Target](https://img.shields.io/badge/Target-Wafer%20Inspection-red?style=for-the-badge)
+
+---
+
+# 📌 Project Overview
+
+This project implements an **AI-Powered Navigation-Error Recovery System** for Scanning Electron Microscope (SEM) wafer inspection tools. 
+
+Due to stage drift and beam hysteresis, high-magnification SEM captures often miss their intended targets. **Drift-Sense** acts as a robust recovery layer, localizing a small $1000 \times 1000$ high-magnification reference image inside a $10 \times$ low-magnification search field. 
+
+The design goal is to strictly balance:
+* ⚡ Ultra-low latency (CPU only)
+* 🧠 Robustness to extreme SEM Poisson noise
+* 🎯 Sub-pixel accuracy without Deep Learning hallucinations
+* 🏭 Safe abstention on pure-periodic ambiguous arrays
+
+---
+
+# 🎯 Objectives
+
+* Relocalize lost wafer inspection targets accurately.
+* Survive high physical degradation (Line-Edge Roughness, Charging).
+* Eliminate heavy GPU dependencies by utilizing advanced classical CV.
+* Output exact sub-pixel $(x, y)$ coordinates.
+* Prevent catastrophic tool crashes through calibrated abstention.
+
+---
+
+# 🖼️ Drift-Sense Pipeline
+
+```text
+Low-Mag Search Image
+        │
+        ▼
+Bicubic Downsampling & Blur Matching
+        │
+        ▼
+Gradient-Domain Projection (Sobel)
+        │
+        ▼
+Normalized Cross-Correlation (Grad-NCC)
+        │
+        ▼
+Phase-Correlation Sub-pixel Refinement
+        │
+        ▼
+Target (x, y) Prediction
+```
+
+---
 
 ## 🚀 1-Minute Reviewer Quickstart
 
@@ -34,6 +88,8 @@ python inference.py --ref data/dram_eval/images/00000_ref.png --search data/dram
 
 </details>
 
+---
+
 ## 📋 Submission Checklist (Applied Materials PS2)
 
 | Required Item | Artifact Location | Description |
@@ -44,6 +100,8 @@ python inference.py --ref data/dram_eval/images/00000_ref.png --search data/dram
 | **4. Core Logic** | `code/` | Clean directory without DL bloat. |
 | **5. Dependencies** | `requirements.txt` | Minimal dependencies (`numpy`, `opencv-python`). |
 | **6. Citations** | `CITATIONS.md` | Academic citations for physics-grounded noise models. |
+
+---
 
 ## 📊 Performance Benchmarks
 
