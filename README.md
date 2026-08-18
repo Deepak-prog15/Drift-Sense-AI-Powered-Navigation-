@@ -39,7 +39,7 @@ The design goal is to strictly balance:
 
 # 🖼️ Drift-Sense Pipeline
 
-![Architecture Diagram](Semicon_Architecture.png)
+![Architecture Diagram](ADD_YOUR_ARCH_IMAGE_HERE.png)
 
 ```text
 Low-Mag Search Image
@@ -140,7 +140,7 @@ pip install -r requirements.txt
 **2. Generate Synthetic Test Dataset**
 Generates 30 realistic image pairs with recorded ground truth:
 ```bash
-python generate.py --style DRAM --num 30 --out data/dram_eval
+python generate.py --style dram --num 30 --out data/dram_eval
 ```
 
 **3. Run Critical Inference Script**
@@ -154,13 +154,26 @@ python inference.py --ref data/dram_eval/images/00000_ref.png --search data/dram
 
 ---
 
+# 🎥 Demo Video
+
+Watch the full system in action, demonstrating sub-pixel localization on live generated image pairs and our robust failure detection.
+
+<div align="center">
+  <a href="https://youtu.be/YOUR_YOUTUBE_LINK_HERE">
+    <img src="plots/confidence_vs_error.png" alt="Demo Video" width="600">
+  </a>
+  <p><i>Click the image above to watch the demonstration on YouTube.</i></p>
+</div>
+
+---
+
 # 📋 Submission Checklist (Applied Materials PS2)
 
 | Required Item | Artifact Location | Description |
 |---|---|---|
-| **1. README.md** | `README.md` | Complete setup & generation instructions. |
-| **2. Dataset Generator** | `generate.py` | Standalone generator. |
-| **3. Inference Script** | `inference.py` | Primary scoring script. Outputs center coordinates. |
-| **4. Core Logic** | `code/` | Clean directory without DL bloat. |
-| **5. Dependencies** | `requirements.txt` | Minimal dependencies (`numpy`, `opencv-python`). |
-| **6. Citations** | `CITATIONS.md` | Academic citations for physics-grounded noise models. |
+| **1. README.md** | [`README.md`](./README.md) | Complete setup & generation instructions. |
+| **2. Dataset Generator** | [`generate.py`](./generate.py) | Standalone generator. |
+| **3. Inference Script** | [`inference.py`](./inference.py) | Primary scoring script. Outputs center coordinates. |
+| **4. Core Logic** | [`code/`](./code/) | Clean directory without DL bloat. |
+| **5. Dependencies** | [`requirements.txt`](./requirements.txt) | Minimal dependencies (`numpy`, `opencv-python`). |
+| **6. Citations** | [`CITATIONS.md`](./CITATIONS.md) | Academic citations for physics-grounded noise models. |
