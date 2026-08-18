@@ -1,0 +1,63 @@
+<svg width="1400" height="320" viewBox="0 0 1400 320" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1400" height="320" fill="#0F172A"/>
+  <defs>
+    <!-- Neon Gradient -->
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+    <!-- Glow Effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Blinking Title -->
+  <text x="50%" y="140"
+        text-anchor="middle"
+        font-family="Segoe UI, Arial, sans-serif"
+        font-size="92"
+        font-weight="900"
+        fill="url(#grad1)"
+        filter="url(#glow)">
+    <animate attributeName="opacity"
+             values="1;0.6;1"
+             dur="2s"
+             repeatCount="indefinite"/>
+    Drift-Sense
+  </text>
+
+  <!-- Subtitle -->
+  <text x="50%" y="210"
+        text-anchor="middle"
+        font-family="Segoe UI, Arial, sans-serif"
+        font-size="36"
+        font-weight="600"
+        fill="#38BDF8">
+    AI-Powered SEM Navigation Recovery
+  </text>
+
+  <!-- Scrolling Tagline -->
+  <g>
+    <text y="270"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="24"
+          font-weight="600"
+          fill="#FACC15">
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        from="1400 0"
+        to="-1400 0"
+        dur="18s"
+        repeatCount="indefinite"/>
+      Applied Materials Hackathon PS2 • Zero Deep Learning Bloat • 100% Solvable Accuracy • Physics-Grounded Simulation • Sub-pixel Lattice Phase Recovery •
+    </text>
+  </g>
+</svg>
