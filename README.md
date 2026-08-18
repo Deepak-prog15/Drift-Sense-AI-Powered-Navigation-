@@ -27,16 +27,68 @@ The design goal is to strictly balance:
 
 ---
 
-# 🏗️ Architecture & Pipeline
+# 🎯 Objectives
+
+* Relocalize lost wafer inspection targets accurately.
+* Survive high physical degradation (Line-Edge Roughness, Charging).
+* Eliminate heavy GPU dependencies by utilizing advanced classical CV.
+* Output exact sub-pixel $(x, y)$ coordinates.
+* Prevent catastrophic tool crashes through calibrated abstention.
+
+---
+
+# 🖼️ Drift-Sense Pipeline
 
 ![Architecture Diagram](ADD_YOUR_ARCH_IMAGE_HERE.png)
 
-### The Classical CV Approach
-To avoid the bloat of deep learning models and ensure determinism, we rely on a mathematically rigorous classical pipeline:
-1. **Bicubic Downsampling & Blur Matching:** Aligning the frequency domains of the reference and search images.
-2. **Gradient-Domain Projection (Sobel):** Extracting edge topologies to combat charging and illumination drift.
-3. **Normalized Cross-Correlation (Grad-NCC):** The core template matching engine for translational alignment.
-4. **Phase-Correlation Sub-pixel Refinement:** Achieving sub-pixel accuracy.
+```text
+Low-Mag Search Image
+        │
+        ▼
+Bicubic Downsampling & Blur Matching
+        │
+        ▼
+Gradient-Domain Projection (Sobel)
+        │
+        ▼
+Normalized Cross-Correlation (Grad-NCC)
+        │
+        ▼
+Phase-Correlation Sub-pixel Refinement
+        │
+        ▼
+Target (x, y) Prediction
+```
+
+---
+
+# 🧬 Physical Degradation Handled
+
+The dataset generator and inference logic explicitly model and recover from the following semiconductor inspection challenges:
+
+---
+
+### 🌊 Poisson Shot Noise
+The dominant noise in SEM imaging. Depends strictly on electron dose.
+**Handled by:** Gradient-domain frequency matching before correlation.
+
+---
+
+### 📏 Line Edge Roughness (LER)
+Irregular or rough feature edges instead of smooth boundaries due to lithography limits.
+**Handled by:** Low-pass filtering in the classical pipeline.
+
+---
+
+### 📐 Raster Scan Drift
+Thermal drift and beam hysteresis that shears horizontal scanlines.
+**Handled by:** Translation-invariant Normalized Cross-Correlation.
+
+---
+
+### ⚡ Sample Charging
+Localized bright/dark discoloration gradients caused by electron accumulation on the wafer surface.
+**Handled by:** Sobel edge-projection to eliminate DC lighting components.
 
 ---
 
@@ -66,17 +118,7 @@ These metrics exactly match our official Phase 2 Hackathon PPT presentation:
 
 ---
 
-# 🎯 Objectives
-
-* Relocalize lost wafer inspection targets accurately.
-* Survive high physical degradation (Line-Edge Roughness, Charging).
-* Eliminate heavy GPU dependencies by utilizing advanced classical CV.
-* Output exact sub-pixel $(x, y)$ coordinates.
-* Prevent catastrophic tool crashes through calibrated abstention.
-
----
-
-## 🚀 1-Minute Reviewer Quickstart
+# 🚀 1-Minute Reviewer Quickstart
 
 Verify all submission items with zero configuration.
 
@@ -106,7 +148,7 @@ python inference.py --ref data/dram_eval/images/00000_ref.png --search data/dram
 
 ---
 
-## 📋 Submission Checklist (Applied Materials PS2)
+# 📋 Submission Checklist (Applied Materials PS2)
 
 | Required Item | Artifact Location | Description |
 |---|---|---|
