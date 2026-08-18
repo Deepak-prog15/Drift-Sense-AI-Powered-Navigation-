@@ -14,7 +14,7 @@
 ---
 
 ### 🏆 Hackathon Submissions (Quick Links)
-- 📄 **[View Final Presentation PDF (Google Drive)](https://drive.google.com/file/d/1RDs73oOdCoCDzG3X2XUgM4StXpcCzQz4/view?usp=sharing)**
+- 📄 **[View Final Presentation PDF (Google Drive)](https://drive.google.com/file/d/1RDs73oODCoCDzG3X2XUgM4StXpcCzQz4/view?usp=sharing)**
 - 🎥 **[Watch Demo Video (Google Drive/YouTube)](https://drive.google.com/drive/folders/1pPK8HlDVk9uAg7XIizAn517fBz5rGuhM)**
 
 ---
