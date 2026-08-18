@@ -39,7 +39,7 @@ The design goal is to strictly balance:
 
 # 🖼️ Drift-Sense Pipeline
 
-![Architecture Diagram](ADD_YOUR_ARCH_IMAGE_HERE.png)
+![Architecture Diagram](Semicon_Architecture.png)
 
 ```text
 Low-Mag Search Image
