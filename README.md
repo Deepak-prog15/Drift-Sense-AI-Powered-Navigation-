@@ -39,7 +39,7 @@ The design goal is to strictly balance:
 
 # 🖼️ Drift-Sense Pipeline
 
-![Architecture Diagram](Semicon_Architecture.png)
+![Architecture Diagram](ADD_YOUR_ARCH_IMAGE_HERE.png)
 
 ```text
 Low-Mag Search Image
@@ -171,9 +171,10 @@ Watch the full system in action, demonstrating sub-pixel localization on live ge
 
 | Required Item | Artifact Location | Description |
 |---|---|---|
-| **1. README.md** | [`README.md`](./README.md) | Complete setup & generation instructions. |
-| **2. Dataset Generator** | [`generate.py`](./generate.py) | Standalone generator. |
-| **3. Inference Script** | [`inference.py`](./inference.py) | Primary scoring script. Outputs center coordinates. |
-| **4. Core Logic** | [`code/`](./code/) | Clean directory without DL bloat. |
-| **5. Dependencies** | [`requirements.txt`](./requirements.txt) | Minimal dependencies (`numpy`, `opencv-python`). |
-| **6. Citations** | [`CITATIONS.md`](./CITATIONS.md) | Academic citations for physics-grounded noise models. |
+| **1. Submission PDF** | [`Drift_Sense_Presentation.pdf`](./Drift_Sense_Presentation.pdf) | Final hackathon presentation deck. |
+| **2. README.md** | [`README.md`](./README.md) | Complete setup & generation instructions. |
+| **3. Dataset Generator** | [`generate.py`](./generate.py) | Standalone generator. |
+| **4. Inference Script** | [`inference.py`](./inference.py) | Primary scoring script. Outputs center coordinates. |
+| **5. Core Logic** | [`code/`](./code/) | Clean directory without DL bloat. |
+| **6. Dependencies** | [`requirements.txt`](./requirements.txt) | Minimal dependencies (`numpy`, `opencv-python`). |
+| **7. Citations** | [`CITATIONS.md`](./CITATIONS.md) | Academic citations for physics-grounded noise models. |
