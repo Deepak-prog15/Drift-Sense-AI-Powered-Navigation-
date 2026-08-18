@@ -12,6 +12,8 @@
 ![Target](https://img.shields.io/badge/Target-Wafer%20Inspection-red?style=for-the-badge)
 
 ---
+[`Drift_Sense_Presentation.pdf`]([`Drift_Sense_Presentation.pdf`](./Drift_Sense_Presentation.pdf)
+)
 
 # 📌 Project Overview
 
