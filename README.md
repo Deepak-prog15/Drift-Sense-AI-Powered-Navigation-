@@ -14,8 +14,8 @@
 ---
 
 ### 🏆 Hackathon Submissions (Quick Links)
-- 📄 **[View Final Presentation PDF (Google Drive)](YOUR_GOOGLE_DRIVE_PDF_LINK_HERE)**
-- 🎥 **[Watch Demo Video (Google Drive/YouTube)](YOUR_GOOGLE_DRIVE_VIDEO_LINK_HERE)**
+- 📄 **[View Final Presentation PDF (Google Drive)]([YOUR_GOOGLE_DRIVE_PDF_LINK_HERE](https://drive.google.com/file/d/1RDs73oODCoCDzG3X2XUgM4StXpcCzQz4/view?usp=sharing))**
+- 🎥 **[Watch Demo Video (Google Drive/YouTube)]([YOUR_GOOGLE_DRIVE_VIDEO_LINK_HERE](https://drive.google.com/drive/folders/1pPK8HlDVk9uAg7XIizAn517fBz5rGuhM))**
 
 ---
 
@@ -45,7 +45,7 @@ The design goal is to strictly balance:
 
 # 🖼️ Drift-Sense Pipeline
 
-![Architecture Diagram](ADD_YOUR_ARCH_IMAGE_HERE.png)
+![Architecture Diagram](Semicon_Architecture.png)
 
 ```text
 Low-Mag Search Image
