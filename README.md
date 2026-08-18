@@ -12,8 +12,12 @@
 ![Target](https://img.shields.io/badge/Target-Wafer%20Inspection-red?style=for-the-badge)
 
 ---
-[`Drift_Sense_Presentation.pdf`]([`Drift_Sense_Presentation.pdf`](./Drift_Sense_Presentation.pdf)
-)
+
+### 🏆 Hackathon Submissions (Quick Links)
+- 📄 **[View Final Presentation PDF (Google Drive)](YOUR_GOOGLE_DRIVE_PDF_LINK_HERE)**
+- 🎥 **[Watch Demo Video (Google Drive/YouTube)](YOUR_GOOGLE_DRIVE_VIDEO_LINK_HERE)**
+
+---
 
 # 📌 Project Overview
 
